@@ -1,5 +1,5 @@
 /*
-* This simple program demonstrates why right brace style (aka K&R style, 1TBS) is better than left brace style (aka Allman, GNU, Whitesmiths, et al) in JavaScript.
+* Demonstrates why right brace style (aka K&R style, 1TBS) is better than left brace style (aka Allman, GNU, Whitesmiths, et al) in JavaScript.
 * For more info on indentation styles, visit https://en.wikipedia.org/wiki/Indent_style
 *
 * Difference between K&R style and 1TBS (One True Brace Style) ==> https://softwareengineering.stackexchange.com/questions/99543/what-is-the-difference-between-kr-and-one-true-brace-style-1tbs-styles

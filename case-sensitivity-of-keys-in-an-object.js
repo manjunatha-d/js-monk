@@ -1,5 +1,5 @@
 /*
-* This program demonstrates the case sensitivity of the key names in an object.
+* Demonstrates the case sensitivity of key names in an object.
 *
 * The property names of an object are case sensitive.
 * You can have multiple property names with same spelling, but different case.
