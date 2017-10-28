@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>JS + CSS Clock</title>
-</head>0
+</head>
 <body>
 
     <div class="clock">
@@ -17,7 +17,6 @@
     <style>
         html {
             background: #000;
-            text-align: center;
             font-size: 10px;
         }
 
@@ -33,14 +32,14 @@
         .clock {
             width: 30rem;
             height: 30rem;
-            border: 5px solid white;
+            border: 10px solid white;
             border-radius: 50%;
             margin: 50px auto;
             position: relative;
             padding: 2rem;
             box-shadow:
                     0 0 0 4px rgba(0,0,0,0.1),
-                    inset 0 0 0 3px #EFEFEF,
+                    inset 0 0 0 3px white,
                     inset 0 0 10px black,
                     0 0 10px rgba(0,0,0,0.2);
         }
@@ -53,65 +52,80 @@
         }
 
         .hand {
-            width: 60%;
-            height: 5px;
+            width: 50%;
+            height: 2px;
             background: white;
             position: absolute;
             top: 50%;
-            border-radius: 0%;
             transform: rotate(90deg);
-            transform-origin: 80%;
+            transform-origin: 100%;
             transition: all 1s;
             transition-timing-function: cubic-bezier(0,0,0,0);
         }
         
+        /* Change the color and thickness of second hand */
         .second-hand {
             background: #4682b4;
         }
 
+        /* Change the color and thickness of minute hand */
         .minute-hand {
             background: orangered;
         }
-
+        
+        /* Change the color and thickness of hour hand */
         .hour-hand {
             background: teal;
-            width: 30%;
-            left: 24%;
-            transform-origin: 80%;
         }
-
     </style>
 
     <script>
+
+        // get the DOM element of second hand, minute hand, and hour hand
         const secondHand = document.querySelector('.second-hand');
         const minuteHand = document.querySelector('.minute-hand');
         const hourHand = document.querySelector('.hour-hand');
 
-        const calcSecondDegrees = (seconds) => ((seconds / 60) * 360) + 96;
-        const calcMinuteDegrees = (minutes, seconds) => (((minutes / 60) * 360) + 90) + ((seconds / 60) * 6);
-        const calcHourDegrees = (hours, minutes) => (((hours / 24) * 720) + 90); // + ((minutes / 60) * 30);
-
+        // set the positions of all the hands correctly based on the current time
         const updatePositions = () => {
             let currentTime = new Date();
-            let seconds = currentTime.getSeconds();
-            let minutes = currentTime.getMinutes();
-            let hours = currentTime.getHours();
+            let seconds = currentTime.getSeconds(); // value range: 0-59
+            let minutes = currentTime.getMinutes(); // value range: 0-59
+            let hours = currentTime.getHours(); // value range: 0-23
 
-            secondHandDegrees = calcSecondDegrees(seconds + 1);
-            minuteHandDegrees = calcMinuteDegrees(minutes + 1, seconds + 1);
-            hourHandDegrees = calcHourDegrees(hours + 1, minutes + 1);
+            //---------------------------------------------------------------------------------------
+            // At 0 seconds the value of degree for second hand will be less than its previous value
+            // This causes the second hand to rotate in reverse direction.
+            // To prevent that, set the transition property to 'all 0s' so that the reverse rotation 
+            // happens instantly and the user won't notice that (hopefully).
+            //---------------------------------------------------------------------------------------
+            secondHand.style.transition = (seconds === 0 ) ? 'all 0s' : 'all 1s';
+
+            //---------------------------------------------------------------------------------------
+            // Calculate rotation degrees for second, minute, and hour hands.
+            // Additional 90deg is added because all the hands start along X axis by default.
+            // To align them verically, rotate all the hands by 90deg by default.
+            //---------------------------------------------------------------------------------------
+            let secondHandDegrees = ((seconds / 60) * 360) + 90;
+            let  minuteHandDegrees = (((minutes / 60) * 360) + 90) + ((seconds / 60) * 6);
+            let hourHandDegrees = (((hours / 24) * 720) + 90) + ((minutes / 60) * 30);
 
             console.log(`Seconds: ${seconds} || Degrees: ${secondHandDegrees}`);
             console.log(`Minutes: ${minutes} || Degrees: ${minuteHandDegrees}`);
             console.log(`Hours: ${hours} || Degrees: ${hourHandDegrees}`);
             console.log("=====================================================");
 
+            // rotate the hands
             secondHand.style.transform = `rotate(${secondHandDegrees}deg)`;
             minuteHand.style.transform = `rotate(${minuteHandDegrees}deg)`;
             hourHand.style.transform = `rotate(${hourHandDegrees}deg)`;
         };
 
+        // update the positions of hands every second
         setInterval(updatePositions, 1000);
+
+        // To set the hands to their correct position initially
+        updatePositions();
     </script>
 </body>
 </html>
