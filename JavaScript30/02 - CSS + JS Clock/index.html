@@ -53,7 +53,7 @@
 
         .hand {
             width: 50%;
-            height: 2px;
+            height: 5px;
             background: white;
             position: absolute;
             top: 50%;
@@ -66,16 +66,23 @@
         /* Change the color and thickness of second hand */
         .second-hand {
             background: #4682b4;
+            height: 2px;
         }
 
         /* Change the color and thickness of minute hand */
         .minute-hand {
             background: orangered;
+            height: 4px;
+            width: 40%;
+            left: 10%;
         }
         
         /* Change the color and thickness of hour hand */
         .hour-hand {
             background: teal;
+            height: 6px;
+            width: 30%;
+            left: 20%;
         }
     </style>
 
@@ -94,17 +101,20 @@
             let hours = currentTime.getHours(); // value range: 0-23
 
             //---------------------------------------------------------------------------------------
-            // At 0 seconds the value of degree for second hand will be less than its previous value
+            // At 0 seconds/minutes/hours the value of degree for second/minute/hour hand will be
+            // less than its previous value.
             // This causes the second hand to rotate in reverse direction.
             // To prevent that, set the transition property to 'all 0s' so that the reverse rotation 
             // happens instantly and the user won't notice that (hopefully).
             //---------------------------------------------------------------------------------------
             secondHand.style.transition = (seconds === 0 ) ? 'all 0s' : 'all 1s';
+            minuteHand.style.transition = (seconds === 0 ) ? 'all 0s' : 'all 1s';
+            hourHand.style.transition = (seconds === 0 ) ? 'all 0s' : 'all 1s';
 
             //---------------------------------------------------------------------------------------
             // Calculate rotation degrees for second, minute, and hour hands.
             // Additional 90deg is added because all the hands start along X axis by default.
-            // To align them verically, rotate all the hands by 90deg by default.
+            // To align them vertically, rotate all the hands by 90deg by default.
             //---------------------------------------------------------------------------------------
             let secondHandDegrees = ((seconds / 60) * 360) + 90;
             let  minuteHandDegrees = (((minutes / 60) * 360) + 90) + ((seconds / 60) * 6);
@@ -119,7 +129,7 @@
             secondHand.style.transform = `rotate(${secondHandDegrees}deg)`;
             minuteHand.style.transform = `rotate(${minuteHandDegrees}deg)`;
             hourHand.style.transform = `rotate(${hourHandDegrees}deg)`;
-        };
+        }
 
         // update the positions of hands every second
         setInterval(updatePositions, 1000);
