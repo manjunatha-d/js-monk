@@ -1,0 +1,49 @@
+<html>
+
+<head>
+	<title>Console Tricks!</title>
+</head>
+
+<body>
+	<p onclick="bleedBlue()">
+		Boom Boom!!
+	</p>
+
+	<script>
+		//---------------------------------------------------------------------------------------------------------------------
+		// To debug attribute modifications on a node, you can select the node inside the Elements tab in dev tools, 
+		// right click, and put a break on 'attribute modifications'. The debugger will pause whenever any attribute
+		// of that node is modified.
+		//---------------------------------------------------------------------------------------------------------------------
+		function bleedBlue() {
+			const paragraph = document.querySelector('p');
+			paragraph.style.color = 'blue';
+		}
+
+		//---------------------------------------------------------------------------------------------------------------------
+		// Console tricks
+		//---------------------------------------------------------------------------------------------------------------------
+
+		// simple log -- no fancy styles
+		console.log('Hello');
+
+		// interpolated ==> You can use %s inside a string and pass the vars
+		console.log('My dog\'s name is %s', 'Nethra');
+
+		// styling console logs ==> prefifx %c and add styles as the second parameter
+		console.log('%c Here is some fancy text', 'color: blue');
+
+		// warnings - displays a yellow bang icon ==> prints a stack trace as well
+		console.warn('I\'m a warning!');
+
+		// error - displays a red cross icon ==> red text, includes stack trace
+		console.error('Holy crap!');
+
+		// info 
+		console.info('Info message');
+
+
+	</script>
+</body>
+
+</html>

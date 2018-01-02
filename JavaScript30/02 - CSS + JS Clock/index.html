@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>JS + CSS Clock</title>
 </head>
+
 <body>
 
     <div class="clock">
@@ -37,11 +39,10 @@
             margin: 50px auto;
             position: relative;
             padding: 2rem;
-            box-shadow:
-                    0 0 0 4px rgba(0,0,0,0.1),
-                    inset 0 0 0 3px white,
-                    inset 0 0 10px black,
-                    0 0 10px rgba(0,0,0,0.2);
+            box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1),
+            inset 0 0 0 3px white,
+            inset 0 0 10px black,
+            0 0 10px rgba(0, 0, 0, 0.2);
         }
 
         .clock-face {
@@ -60,24 +61,27 @@
             transform: rotate(90deg);
             transform-origin: 100%;
             transition: all 1s;
-            transition-timing-function: cubic-bezier(0,0,0,0);
+            transition-timing-function: cubic-bezier(0, 0, 0, 0);
         }
-        
+
         /* Change the color and thickness of second hand */
+
         .second-hand {
             background: #4682b4;
             height: 2px;
         }
 
         /* Change the color and thickness of minute hand */
+
         .minute-hand {
             background: orangered;
             height: 4px;
             width: 40%;
             left: 10%;
         }
-        
+
         /* Change the color and thickness of hour hand */
+
         .hour-hand {
             background: teal;
             height: 6px;
@@ -107,9 +111,9 @@
             // To prevent that, set the transition property to 'all 0s' so that the reverse rotation 
             // happens instantly and the user won't notice that (hopefully).
             //---------------------------------------------------------------------------------------
-            secondHand.style.transition = (seconds === 0 ) ? 'all 0s' : 'all 1s';
-            minuteHand.style.transition = (seconds === 0 ) ? 'all 0s' : 'all 1s';
-            hourHand.style.transition = (seconds === 0 ) ? 'all 0s' : 'all 1s';
+            secondHand.style.transition = (seconds === 0) ? 'all 0s' : 'all 1s';
+            minuteHand.style.transition = (seconds === 0) ? 'all 0s' : 'all 1s';
+            hourHand.style.transition = (seconds === 0) ? 'all 0s' : 'all 1s';
 
             //---------------------------------------------------------------------------------------
             // Calculate rotation degrees for second, minute, and hour hands.
@@ -117,7 +121,7 @@
             // To align them vertically, rotate all the hands by 90deg by default.
             //---------------------------------------------------------------------------------------
             let secondHandDegrees = ((seconds / 60) * 360) + 90;
-            let  minuteHandDegrees = (((minutes / 60) * 360) + 90) + ((seconds / 60) * 6);
+            let minuteHandDegrees = (((minutes / 60) * 360) + 90) + ((seconds / 60) * 6);
             let hourHandDegrees = (((hours / 24) * 720) + 90) + ((minutes / 60) * 30);
 
             console.log(`Seconds: ${seconds} || Degrees: ${secondHandDegrees}`);
@@ -138,4 +142,5 @@
         updatePositions();
     </script>
 </body>
+
 </html>
