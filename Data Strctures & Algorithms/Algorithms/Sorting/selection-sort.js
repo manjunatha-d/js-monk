@@ -8,7 +8,9 @@ function selectionSort(array) {
 
     // find the index of the min element
     for (let j = i + 1; j < length; j++) {
-      if (array[j] < array[i]) {
+      // Earlier I wrote this incorrectly as `array[j] < array[i]`. Writing test cases in testSort.js helped me figure out this bug
+      // Lesson => Always write test cases
+      if (array[j] < array[minIndex]) {
         minIndex = j;
       }
     }
@@ -19,6 +21,5 @@ function selectionSort(array) {
   return array;
 }
 
-console.log(selectionSort([5, 4, 3, 2, 1, 0]));
-console.log(selectionSort([0, 1, 2, 3, 4, 5]));
-console.log(selectionSort([1231, 384, 878, 87]));
+const test = require("./testSort");
+test.verifySorting(selectionSort);

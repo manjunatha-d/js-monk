@@ -20,6 +20,5 @@ function insertionSort(array) {
   return array;
 }
 
-console.log(insertionSort([5, 4, 3, 2, 1, 0]));
-console.log(insertionSort([0, 1, 2, 3, 4, 5]));
-console.log(insertionSort([1231, 384, 878, 87]));
+const test = require("./testSort");
+test.verifySorting(insertionSort);

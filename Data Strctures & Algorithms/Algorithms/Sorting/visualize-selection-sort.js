@@ -11,7 +11,7 @@ function selectionSort(array) {
 
     // find the index of the min element
     for (let j = i + 1; j < length; j++) {
-      if (array[j] < array[i]) {
+      if (array[j] < array[minIndex]) {
         minIndex = j;
       }
     }
@@ -31,6 +31,7 @@ function selectionSort(array) {
   return array;
 }
 
-selectionSort([5, 4, 3, 2, 1, 0]);
-selectionSort([1231, 384, 878, 87]);
-selectionSort([0, 1, 2, 3, 4, 5]);
+selectionSort([45, 12, 32, 67, 83, 23]);
+// selectionSort([5, 4, 3, 2, 1, 0]);
+// selectionSort([1231, 384, 878, 87]);
+// selectionSort([0, 1, 2, 3, 4, 5]);

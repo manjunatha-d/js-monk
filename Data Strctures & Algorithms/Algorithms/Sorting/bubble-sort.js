@@ -22,8 +22,7 @@ function bubbleSort(array = []) {
   return array;
 }
 
-console.log(bubbleSort([0, 1, 2, 3, 4, 5]));
-console.log(bubbleSort([5, 4, 3, 2, 1, 0]));
-console.log(bubbleSort([54, 12, 4343, 123]));
+const test = require("./testSort");
+test.verifySorting(bubbleSort);
 
 // Time complexity => O(n^2)

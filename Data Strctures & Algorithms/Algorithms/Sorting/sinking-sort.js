@@ -20,9 +20,8 @@ function sinkingSort(array = []) {
   return array;
 }
 
-console.log(sinkingSort([0, 1, 2, 3, 4, 5]));
-console.log(sinkingSort([5, 4, 3, 2, 1, 0]));
-console.log(sinkingSort([54, 12, 4343, 123]));
+const test = require("./testSort");
+test.verifySorting(sinkingSort);
 
 // Time complexity
 
