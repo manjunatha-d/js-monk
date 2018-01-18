@@ -25,3 +25,7 @@ module.exports = {
   Dog: Dog,
   Cat: Cat
 };
+
+// IMPORTANT => This is Node.js way of exporting module, not ES6. This is incorrent.
+// This works in Node.js because it provides the object module.exports by default
+// module.exports is not available in ES6
