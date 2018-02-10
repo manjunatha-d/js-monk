@@ -1,14 +1,14 @@
 // Solution 1 Brute-force way
 for (let i = 1; i < 100; i++) {
-  let text = '';
+  let text = "";
 
   if (i % 3 == 0) {
-    text = 'fizz';
+    text = "fizz";
     if (i % 5 == 0) {
-      text = 'fizzbuzz';
+      text = "fizzbuzz";
     }
   } else if (i % 5 == 0) {
-    text = text + 'buzz';
+    text = text + "buzz";
   } else {
     text = i;
   }
@@ -19,11 +19,11 @@ for (let i = 1; i < 100; i++) {
 // Solution 2
 for (let i = 1; i < 100; i++) {
   if (i % 15 == 0) {
-    console.log('fizzbuzz');
+    console.log("fizzbuzz");
   } else if (i % 3 == 0) {
-    console.log('fizz');
+    console.log("fizz");
   } else if (i % 5 == 0) {
-    console.log('buzz');
+    console.log("buzz");
   } else {
     console.log(i);
   }
@@ -31,5 +31,17 @@ for (let i = 1; i < 100; i++) {
 
 // Solution 3 => Shorter version
 for (let i = 1; i < 100; i++) {
-  console.log((i % 3 ? '' : 'fizz') + (i % 5 ? '' : 'buzz') || i);
+  console.log((i % 3 ? "" : "fizz") + (i % 5 ? "" : "buzz") || i);
+}
+
+// Solution 4
+
+let i = 1;
+
+while (i <= 100) {
+  let result = !(i % 3)
+    ? !(i % 5) ? "fizzbuzz" : "fizz"
+    : !(i % 5) ? "buzz" : i;
+  console.log(result);
+  i++;
 }
