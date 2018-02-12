@@ -1,0 +1,53 @@
+{
+  "workbench.startupEditor": "newUntitledFile",
+  "terminal.integrated.shell.linux": "/usr/bin/zsh",
+  "editor.formatOnSave": true,
+  "window.zoomLevel": 0,
+  "editor.fontFamily": "'consolas', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.fontSize": 15,
+  "terminal.integrated.fontSize": 15,
+  "prettier.proseWrap": "never",
+  "prettier.singleQuote": true,
+  "prettier.eslintIntegration": true,
+  "emojisense.languages": {
+    "markdown": true,
+    "plaintext": {
+      "markupCompletionsEnabled": true,
+      "emojiDecoratorsEnabled": true
+    },
+    "git-commit": true
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "emmet.triggerExpansionOnTab": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true
+  },
+  "liveServer.settings.donotShowInfoMsg": true,
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": false,
+    "suppressResultsExplorerNotice": false,
+    "suppressUpdateNotice": false,
+    "suppressWelcomeNotice": true
+  },
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 120,
+  "editor.wrappingIndent": "indent",
+  "html.format.wrapLineLength": 120,
+  "prettier.tabWidth": 2,
+  "prettier.useTabs": true,
+  "workbench.colorTheme": "One Monokai",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": false
+}
