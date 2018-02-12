@@ -12,8 +12,8 @@
 
 function foo() {
   var a = "`a` inside foo";
-  console.log("this === global:", this === global); 
-  console.log("this.a`:", this.a); 
+  console.log("this === global:", this === global);
+  console.log("this.a`:", this.a);
 }
 
 // var a = "global `a`";
@@ -69,3 +69,21 @@ obj1.foo();
 */
 
 // Since hard binding is a commonly used pattern, ES5 provided a built in utility => Function.prototype.bind
+
+// Explicit vs Implicit binding
+const explicitBindObj = {
+  message: "Explicit binding"
+};
+
+const func = function() {
+  console.log(this.message);
+}.bind(explicitBindObj);
+
+const implicitBindObj = {
+  message: "Implicit binding",
+  func
+};
+
+implicitBindObj.func(); // logs 'Explicit binding'
+
+func().bind(implicitBindObj); // TypeError: Cannot read property 'bind' of undefined
